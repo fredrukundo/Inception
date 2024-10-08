@@ -85,6 +85,27 @@ services:
      - "9000"
     networks:
       - network
+  website:
+    build: ./requirements/bonus/website
+    restart: always
+    ports:
+     - "3000:3000"
+    networks:
+      - network
+  cadvisor:
+    build: ./requirements/bonus/cAdvisor
+    container_name: cadvisor
+    image: cadvisor:42
+    ports:
+      - "8080:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    networks:
+      - network
+    restart: always
 
 volumes:
   mariadb_data:
