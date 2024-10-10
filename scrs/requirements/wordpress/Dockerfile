@@ -1,20 +1,22 @@
-FROM debian:buster
+FROM debian:bullseye
 
 # Install PHP, MariaDB client, and other required packages
 RUN apt-get update && \
     apt-get install -y \
-    php7.3 \
+    php7.4 \
+    php-cgi \
     php-mysql \
     php-fpm \
     wget \
-    sendmail \
+    redis \
+	php-redis \
     mariadb-client
 
 # Expose PHP-FPM on port 9000 for web server communication
 EXPOSE 9000
 
 # Copy PHP-FPM configuration and entrypoint scripts
-COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/
+COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
 COPY ./tools /var/www/
 
 # Make sure the startup script is executable
@@ -24,4 +26,4 @@ RUN chmod +x /var/www/wordpress_start.sh
 ENTRYPOINT [ "/var/www/wordpress_start.sh" ]
 
 # Run PHP-FPM in non-daemon mode
-CMD ["/usr/sbin/php-fpm7.3", "--nodaemonize"]
+CMD ["/usr/sbin/php-fpm7.4", "--nodaemonize"]
