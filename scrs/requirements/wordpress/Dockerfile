@@ -19,7 +19,7 @@ EXPOSE 9000
 COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
 COPY ./tools /var/www/
 
-# Make sure the startup script is executable
+
 RUN chmod +x /var/www/wordpress_start.sh
 
 # Entry point for WordPress setup
