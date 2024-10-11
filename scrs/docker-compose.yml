@@ -5,6 +5,7 @@ services:
     container_name: nginx
     build: ./requirements/nginx
     depends_on:
+      - wordpress
       - adminer
       - redis
     ports:
