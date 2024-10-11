@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Start the MySQL service
-service mysql start
-
+service mariadb start
+sleep 5
 # Create the database if it doesn't already exist
 mysql -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
 
