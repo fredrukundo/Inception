@@ -121,5 +121,4 @@ The architecture consists of interdependent Docker containers communicating over
    ```
 
 ### 2. **Build and start the containers** 
-         ```bash
          make
