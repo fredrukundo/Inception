@@ -116,11 +116,11 @@ The architecture consists of interdependent Docker containers communicating over
 
 ### 1. **Clone the Repository**
    ```bash
-   git clone [https://github.com/yourusername/inception.git](https://github.com/fredrukundo/Inception.git)
+   git clone https://github.com/fredrukundo/Inception.git
    cd inception
    ```
 
 ### 2. **Build and start the containers**
     ```bash
-    make
+    make 
     ```
