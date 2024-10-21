@@ -109,13 +109,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /Users/frukundo/datas/mysql
+      device: /$HOME/datas/mysql
       o: bind
   wordpress_data:
     driver: local
     driver_opts:
       type: none
-      device: /Users/frukundo/datas/wordpress
+      device: /$HOME/datas/wordpress
       o: bind
 
 networks:
