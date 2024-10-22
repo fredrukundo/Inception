@@ -2,8 +2,9 @@ version: '3'
 
 services:
   nginx:
-    container_name: nginx
     build: ./requirements/nginx
+    image: nginx:1337
+    container_name: nginx
     depends_on:
       - wordpress
       - adminer
@@ -17,8 +18,9 @@ services:
       - network
 
   mariadb:
-    container_name: mariadb
     build: ./requirements/mariadb
+    image: mariadb:1337
+    container_name: mariadb
     volumes:
       - mariadb_data:/var/lib/mysql
     networks:
@@ -28,12 +30,11 @@ services:
       - .env
 
   wordpress:
+    build: ./requirements/wordpress
+    image: wordpress:1337
     container_name: wordpress
     depends_on:
       - mariadb
-    build:
-      context: ./requirements/wordpress
-      dockerfile: Dockerfile
     restart: always
     env_file:
       - .env
@@ -44,8 +45,9 @@ services:
 
 #BONUS PART
   redis:
-    container_name: redis
     build: ./requirements/bonus/redis
+    image: redis:1337
+    container_name: redis
     depends_on:
       - wordpress
     ports:
@@ -60,6 +62,7 @@ services:
 
   ftp-server:
     build: requirements/bonus/ftp_server
+    image: ftp-server:1337
     container_name: ftp-server
     ports:
       - "21:21"
@@ -75,6 +78,8 @@ services:
 
   adminer:
     build: ./requirements/bonus/adminer
+    image: adminer:1337
+    container_name: adminer
     restart: always
     depends_on:
       - mariadb
@@ -84,6 +89,8 @@ services:
       - network
   website:
     build: ./requirements/bonus/website
+    image: website:me
+    container_name: website
     restart: always
     ports:
      - "3000:3000"
@@ -91,8 +98,8 @@ services:
       - network
   cadvisor:
     build: ./requirements/bonus/cAdvisor
+    image: cadvisor:1337
     container_name: cadvisor
-    image: cadvisor:42
     ports:
       - "8080:8080"
     volumes:
