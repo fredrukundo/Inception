@@ -1,4 +1,4 @@
-# Inception Project
+# Inception Project 42
 
 ## Table of Contents
 1. [Introduction](#introduction)
