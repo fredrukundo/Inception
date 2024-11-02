@@ -5,12 +5,7 @@
 2. [Project Architecture](#project-architecture)
 3. [Containers Overview](#containers-overview)
 4. [Installation and Setup](#installation-and-setup)
-5. [Configuration Details](#configuration-details)
-6. [Volumes and Networks](#volumes-and-networks)
-7. [Bonus Features](#bonus-features)
-8. [Monitoring with cAdvisor](#monitoring-with-cadvisor)
-9. [License](#license)
-10. [Contact](#contact)
+
 
 ---
 
@@ -32,6 +27,7 @@ This project leverages Docker Compose for orchestration, creating custom Docker 
 ## Project Architecture
 
 The architecture consists of interdependent Docker containers communicating over a custom bridge network. Here is a high-level overview of the system design:
+![Inception](images/inception.png)
 
          +-------------+         +------------+         +--------------+
          |  Nginx (SSL) | <--->   |  WordPress | <--->   |  MariaDB      |
